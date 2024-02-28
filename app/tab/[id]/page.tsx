@@ -13,7 +13,12 @@ interface Props {
 
 export default function Tab(props: Props) {
   console.log(props);
-  return <div>Tab</div>;
+  return (
+    <div>
+      <h1>Tab : {props.params.id}</h1>
+      <h2></h2>
+    </div>
+  );
 }
 
 interface Btype {

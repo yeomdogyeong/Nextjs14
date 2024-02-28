@@ -1,0 +1,6 @@
+{
+  "todos": [
+    { "id": 1, "text": "할 일 1", "completed": false },
+    { "id": 2, "text": "할 일 2", "completed": true }
+  ]
+}
