@@ -1,6 +1,14 @@
 {
   "todos": [
-    { "id": 1, "text": "할 일 1", "completed": false },
-    { "id": 2, "text": "할 일 2", "completed": true }
+    { "id": 1, "text": "잠자기", "completed": false },
+    { "id": 2, "text": "요리하기", "completed": true },
+    { "id": 3, "text": "운동하기", "completed": false },
+    { "id": 4, "text": "책 읽기", "completed": true },
+    { "id": 5, "text": "영화 보기", "completed": false },
+    { "id": 6, "text": "친구와 만나기", "completed": true },
+    { "id": 7, "text": "쇼핑하기", "completed": false },
+    { "id": 8, "text": "일정 정리하기", "completed": true },
+    { "id": 9, "text": "공부하기", "completed": false },
+    { "id": 10, "text": "음악 감상하기", "completed": true }
   ]
 }

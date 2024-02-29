@@ -33,7 +33,7 @@ export const Navigation = () => {
             </span>
           </Link>
         </li>
-        <li className="relative">
+        {/* <li className="relative">
           <Link href="/tab/2">
             <span
               className={`cursor-pointer ${
@@ -55,7 +55,7 @@ export const Navigation = () => {
             </span>
           </Link>
           {pathname === "/tab/3" ? <span className="ml-1">💧</span> : ""}
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

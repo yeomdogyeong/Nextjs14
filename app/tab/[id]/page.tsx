@@ -1,7 +1,10 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { useTodoStore } from "@/app/store/useTodoStore";
-import axios from "axios";
+import { TodoType } from "@/app/api/type";
+import { Axios } from "@/app/api/axios";
+import { getAllTodoList } from "@/app/api/todo";
+import { todo } from "node:test";
 // export const metadata = {
 //   title: "About",
 // };
@@ -14,15 +17,37 @@ interface Props {
 }
 
 export default function Tab(props: Props) {
-  const { todos, getTodoList } = useTodoStore();
+  const { todos, getTodoList, doneTodo, setDoneTodo } = useTodoStore();
+  const [inputValue, setInputValue] = useState<string>("");
+  const [dropMenu, setDropMenu] = useState<string[]>([]);
 
   const { params } = props;
 
-  console.log(params.id);
+  const todoInputFiltered = async (value: string) => {
+    if (inputValue.trim() !== "") {
+      const res = await getAllTodoList(value);
+      const nameMenu = res.data.map((item) => item.text);
+      const newFiltered = nameMenu.filter((item) => item.includes(value));
+
+      setDropMenu(newFiltered);
+    } else {
+      setDropMenu([]);
+    }
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const changeEvent = e.target.value;
+    setInputValue(changeEvent);
+    todoInputFiltered(changeEvent);
+  };
+
+  const handleTodoClick = (todo: string) => {
+    setDoneTodo([todo]);
+  };
 
   useEffect(() => {
     getTodoList();
-  }, [getTodoList]);
+  }, [getTodoList, doneTodo]);
 
   return (
     <div>
@@ -32,14 +57,25 @@ export default function Tab(props: Props) {
           <div key={todo.id}>{todo.text}</div>
         ))}
       </h2>
+      <input
+        className="w-full border-2 h-10 mt-6 text-center"
+        placeholder="여기에 입력"
+        onChange={handleChange}
+        value={inputValue}
+      />
+      {dropMenu.length > 0 && (
+        <div>
+          {dropMenu.map((todo, index) => (
+            <div
+              key={index}
+              className="w-full h-10 mt-2 text-center"
+              onClick={() => handleTodoClick(todo)}
+            >
+              {todo}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
-
-interface Btype {
-  a: {
-    c: string[];
-  };
-}
-
-const b: Btype = { a: { c: ["안녕"] } };

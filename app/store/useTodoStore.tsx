@@ -1,17 +1,23 @@
 import { create } from "zustand";
 import { TodoType } from "../api/type";
-import { getTodoList } from "../api/todo";
+import { getAllTodoList } from "../api/todo";
 
 type Store = {
   todos: TodoType[];
+  doneTodo: string[];
   getTodoList: () => Promise<void>;
+  setDoneTodo: (doneTodo: string[]) => void;
 };
 
-export const useTodoStore = create<Store>((set) => ({
+export const useTodoStore = create<Store>((set, get) => ({
   todos: [],
+  doneTodo: [],
   getTodoList: async () => {
-    const res = await getTodoList();
-    console.log(res);
+    const res = await getAllTodoList();
     set({ todos: res.data });
+  },
+  setDoneTodo: (value: string[]) => {
+    const newTodo = [...get().doneTodo, ...value];
+    set({ doneTodo: newTodo });
   },
 }));
