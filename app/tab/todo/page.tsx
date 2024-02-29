@@ -1,8 +1,6 @@
 "use client";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { useTodoStore } from "@/app/store/useTodoStore";
-import { TodoType } from "@/app/api/type";
-import { Axios } from "@/app/api/axios";
 import { getAllTodoList } from "@/app/api/todo";
 import { todo } from "node:test";
 // export const metadata = {
@@ -16,7 +14,7 @@ interface Props {
   searchParams: {};
 }
 
-export default function Tab(props: Props) {
+export default function Todo(props: Props) {
   const { todos, getTodoList, doneTodo, setDoneTodo } = useTodoStore();
   const [inputValue, setInputValue] = useState<string>("");
   const [dropMenu, setDropMenu] = useState<string[]>([]);
@@ -48,19 +46,30 @@ export default function Tab(props: Props) {
   };
 
   const handleTodoClick = (todo: string) => {
-    setDoneTodo([todo]);
+    if (doneTodo.includes(todo)) {
+      alert("중복입니다");
+    } else {
+      setDoneTodo([todo]);
+    }
   };
 
+  console.log(doneTodo);
   useEffect(() => {
     getTodoList();
-  }, [getTodoList, doneTodo]);
+    setDoneTodo([]);
+  }, [getTodoList, setDoneTodo]);
 
   return (
     <div>
-      <h1>Tab : {params.id}</h1>
+      <h1>Todo : {params.id}</h1>
       <h2>
         {todos.map((todo) => (
-          <div key={todo.id}>{todo.text}</div>
+          <div
+            key={todo.id}
+            className={doneTodo.includes(todo.text) ? "line-through" : ""}
+          >
+            {todo.text}
+          </div>
         ))}
       </h2>
       <input

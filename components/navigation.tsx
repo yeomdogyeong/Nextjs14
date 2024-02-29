@@ -23,39 +23,40 @@ export const Navigation = () => {
 
       <ul className="flex justify-end space-x-4">
         <li className="relative">
-          <Link href="/tab/1">
+          <Link href="/tab/todo">
             <span
               className={`cursor-pointer ${
-                pathname === "/tab/1" ? " text-white" : "text-gray-700"
+                pathname === "/tab/todo" ? " text-white" : "text-gray-700"
               }`}
             >
-              Tab 1
-            </span>
-          </Link>
-        </li>
-        {/* <li className="relative">
-          <Link href="/tab/2">
-            <span
-              className={`cursor-pointer ${
-                pathname === "/tab/2" ? " text-white" : "text-gray-700"
-              }`}
-            >
-              Tab 2
+              Todo
             </span>
           </Link>
         </li>
         <li className="relative">
-          <Link href="/tab/3">
+          <Link href="/tab/addTodo">
             <span
               className={`cursor-pointer ${
-                pathname === "/tab/3" ? " text-white" : "text-gray-700"
+                pathname === "/tab/addTodo" ? " text-white" : "text-gray-700"
               }`}
             >
-              Tab 3
+              addTodo
             </span>
           </Link>
-          {pathname === "/tab/3" ? <span className="ml-1">💧</span> : ""}
-        </li> */}
+        </li>
+        <li className="relative">
+          <Link href="/tab/retouchTodo">
+            <span
+              className={`cursor-pointer ${
+                pathname === "/tab/retouchTodo"
+                  ? " text-white"
+                  : "text-gray-700"
+              }`}
+            >
+              retouchTodo
+            </span>
+          </Link>
+        </li>
       </ul>
     </nav>
   );
