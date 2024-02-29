@@ -1,6 +1,6 @@
 import { GetTodoRs } from "./type";
 import { Axios } from "./axios";
 
-export const getAllTodoList = async (q?: string) => {
-  return await Axios.get<GetTodoRs>("/todos", { params: { q } });
+export const getAllTodoList = async (id?: number) => {
+  return await Axios.get<GetTodoRs>("/todos", { params: { id } });
 };
