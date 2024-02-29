@@ -40,9 +40,9 @@ export default function Todo(props: Props) {
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const changeEvent = e.target.value;
-    setInputValue(changeEvent);
-    todoInputFiltered(changeEvent);
+    const changeValue = e.target.value;
+    setInputValue(changeValue);
+    todoInputFiltered(changeValue);
   };
 
   const handleTodoClick = (todo: string) => {
