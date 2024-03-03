@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function RetouchTodo(props: Props) {
-  const { todos, getTodoList, doneTodo, setDoneTodo, setTodos } =
+  const { todos, getTodoList, doneTodo, setDoneTodo, setTodos, setDeleteTodo } =
     useTodoStore();
   const [edit, setEdit] = useState<boolean>(false);
   const [openValue, setOpenValue] = useState<number>(-1);
@@ -30,6 +30,10 @@ export default function RetouchTodo(props: Props) {
   const handleEnterClick = (idx: number) => {
     setEdit(!edit);
     setOpenValue(-1);
+  };
+
+  const handleDeleteClick = (idx: number) => {
+    setDeleteTodo(idx);
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>, idx: number) => {
@@ -77,7 +81,7 @@ export default function RetouchTodo(props: Props) {
                 </button>
                 <button
                   className="border-2"
-                  onClick={() => handleEditClick(idx)}
+                  onClick={() => handleDeleteClick(idx)}
                 >
                   삭제
                 </button>

@@ -9,6 +9,7 @@ type Store = {
   setTodos: (index: number, e: ChangeEvent<HTMLInputElement>) => void;
   getTodoList: (id?: number) => Promise<void>;
   setDoneTodo: (doneTodo: string[]) => void;
+  setDeleteTodo: (index: number) => void;
 };
 
 export const useTodoStore = create<Store>((set, get) => ({
@@ -27,5 +28,9 @@ export const useTodoStore = create<Store>((set, get) => ({
   setDoneTodo: (value: string[]) => {
     const newTodo = [...get().doneTodo, ...value];
     set({ doneTodo: newTodo });
+  },
+  setDeleteTodo: (idx: number) => {
+    const newTodos = get().todos.filter((_, index) => index !== idx);
+    set({ todos: newTodos });
   },
 }));
