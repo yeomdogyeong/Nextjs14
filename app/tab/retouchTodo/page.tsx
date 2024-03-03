@@ -20,7 +20,6 @@ export default function RetouchTodo(props: Props) {
   const { todos, getTodoList, doneTodo, setDoneTodo, setTodos } =
     useTodoStore();
   const [edit, setEdit] = useState<boolean>(false);
-  const [value, setValue] = useState<string[]>([...todos.map((el) => el.text)]);
   const [openValue, setOpenValue] = useState<number>(-1);
 
   const handleEditClick = (idx: number) => {
@@ -34,13 +33,7 @@ export default function RetouchTodo(props: Props) {
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>, idx: number) => {
-    const eventTarget = e.target.value;
-    setValue((item) => {
-      const newValue = [...item];
-      console.log(newValue);
-      newValue[idx] = eventTarget;
-      return newValue;
-    });
+    setTodos(idx, e);
   };
 
   useEffect(() => {
@@ -60,7 +53,7 @@ export default function RetouchTodo(props: Props) {
             {edit && idx === openValue ? (
               <input
                 className="border-2"
-                value={value[idx]}
+                defaultValue={todo.text}
                 onChange={(e) => handleChange(e, idx)}
               />
             ) : (
@@ -75,9 +68,20 @@ export default function RetouchTodo(props: Props) {
                 확인
               </button>
             ) : (
-              <button className="border-2" onClick={() => handleEditClick(idx)}>
-                수정
-              </button>
+              <>
+                <button
+                  className="border-2"
+                  onClick={() => handleEditClick(idx)}
+                >
+                  수정
+                </button>
+                <button
+                  className="border-2"
+                  onClick={() => handleEditClick(idx)}
+                >
+                  삭제
+                </button>
+              </>
             )}
           </div>
         ))}

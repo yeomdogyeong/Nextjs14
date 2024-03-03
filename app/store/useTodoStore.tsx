@@ -1,11 +1,12 @@
 import { create } from "zustand";
 import { TodoType } from "../api/type";
 import { getAllTodoList } from "../api/todo";
+import { ChangeEvent } from "react";
 
 type Store = {
   todos: TodoType[];
   doneTodo: string[];
-  setTodos: (todo: TodoType) => void;
+  setTodos: (index: number, e: ChangeEvent<HTMLInputElement>) => void;
   getTodoList: (id?: number) => Promise<void>;
   setDoneTodo: (doneTodo: string[]) => void;
 };
@@ -13,8 +14,10 @@ type Store = {
 export const useTodoStore = create<Store>((set, get) => ({
   todos: [],
   doneTodo: [],
-  setTodos: (todo: TodoType) => {
-    const newTodos = [...get().todos, todo];
+  setTodos: (index: number, e: ChangeEvent<HTMLInputElement>) => {
+    //해당 인덱스를 받아와서 그 내용을 다른 내용으로 교체
+    const newTodos = [...get().todos];
+    newTodos[index].text = e.target.value;
     set({ todos: newTodos });
   },
   getTodoList: async (id?: number) => {
