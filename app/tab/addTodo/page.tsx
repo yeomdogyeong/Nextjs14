@@ -28,7 +28,7 @@ export default function AddTodo(props: Props) {
 
   const handleAddTodo = async () => {
     const rq: TodoType = {
-      id: todos.length + 1,
+      id: todos[todos.length - 1].id + 1,
       text: inputValue,
       completed: false,
     };

@@ -2,12 +2,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { useTodoStore } from "@/app/store/useTodoStore";
 import { deleteTodoList, getAllTodoList, putTodoList } from "@/app/api/todo";
-import { todo } from "node:test";
-import { postAddTodoList } from "@/app/api/todo";
-import { PutType, TodoType } from "@/app/api/type";
-// export const metadata = {
-//   title: "About",
-// };
 
 interface Props {
   params: {
@@ -39,11 +33,11 @@ export default function RetouchTodo(props: Props) {
   console.log(todos);
   const handleEnterClick = async (idx: number) => {
     const updateTodo = {
-      id: idx,
+      id: todos[idx].id,
       text: todos[idx].text,
     };
-
-    await putTodoList(idx, updateTodo);
+    console.log(todos[idx].id);
+    await putTodoList(todos[idx].id, updateTodo);
     setEdit(!edit);
     setOpenValue(-1);
   };
@@ -68,7 +62,10 @@ export default function RetouchTodo(props: Props) {
                 onChange={(e) => handleChange(e, idx)}
               />
             ) : (
-              <span>{todo.text}</span>
+              <span>
+                {idx}
+                {todo.text}
+              </span>
             )}
 
             {edit && idx === openValue ? (

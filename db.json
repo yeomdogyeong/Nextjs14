@@ -1,53 +1,16 @@
 {
   "todos": [
     {
-      "id": "1",
-      "text": "잠자기",
-      "completed": false
-    },
-    {
-      "id": "2",
-      "text": "요리하기",
-      "completed": true
-    },
-    {
-      "id": "3",
-      "text": "운동하기",
-      "completed": false
-    },
-    {
-      "id": "4",
-      "text": "책 읽기",
-      "completed": true
-    },
-    {
-      "id": "5",
-      "text": "영화 보기",
-      "completed": false
-    },
-    {
-      "id": "6",
-      "text": "친구와 만나기",
-      "completed": true
-    },
-    {
-      "id": "9",
-      "text": "공부하기",
-      "completed": false
-    },
-    {
       "id": "10",
       "text": "조기반찬ㅇㅇㅇㅇ"
     },
     {
       "id": "13",
-      "text": "추가합니다",
-      "completed": false
+      "text": "추가합니다2"
     },
     {
       "id": "14",
-      "text": "망고아이스",
-      "completed": false
+      "text": "망고아이스2"
     },
     {
       "id": "16",
@@ -55,29 +18,19 @@
       "completed": false
     },
     {
-      "id": "17",
-      "text": "ㅇㅇ"
+      "id": 6,
+      "text": "유자차",
+      "completed": false
     },
     {
-      "id": "8bdf"
+      "id": 7,
+      "text": "다시 더해봄",
+      "completed": false
     },
     {
-      "id": "fa18"
-    },
-    {
-      "id": "34d9"
-    },
-    {
-      "id": "de6a"
-    },
-    {
-      "id": "dd45"
-    },
-    {
-      "id": "c287"
-    },
-    {
-      "id": "8013"
+      "id": 8,
+      "text": "몇 개 더해봄",
+      "completed": false
     }
   ]
 }
