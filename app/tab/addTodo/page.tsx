@@ -17,8 +17,7 @@ interface Props {
 }
 
 export default function AddTodo(props: Props) {
-  const { todos, getTodoList, doneTodo, setDoneTodo, setTodos } =
-    useTodoStore();
+  const { todos, getTodoList, doneTodo, setDoneTodo } = useTodoStore();
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
