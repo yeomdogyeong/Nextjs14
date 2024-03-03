@@ -1,10 +1,10 @@
 "use client";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { useTodoStore } from "@/app/store/useTodoStore";
-import { getAllTodoList } from "@/app/api/todo";
+import { deleteTodoList, getAllTodoList, putTodoList } from "@/app/api/todo";
 import { todo } from "node:test";
 import { postAddTodoList } from "@/app/api/todo";
-import { TodoType } from "@/app/api/type";
+import { PutType, TodoType } from "@/app/api/type";
 // export const metadata = {
 //   title: "About",
 // };
@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function RetouchTodo(props: Props) {
-  const { todos, getTodoList, doneTodo, setDoneTodo, setTodos, setDeleteTodo } =
+  const { todos, getTodoList, doneTodo, setTodos, setDeleteTodo } =
     useTodoStore();
   const [edit, setEdit] = useState<boolean>(false);
   const [openValue, setOpenValue] = useState<number>(-1);
@@ -27,23 +27,30 @@ export default function RetouchTodo(props: Props) {
     setOpenValue(idx);
   };
 
-  const handleEnterClick = (idx: number) => {
-    setEdit(!edit);
-    setOpenValue(-1);
-  };
-
-  const handleDeleteClick = (idx: number) => {
+  const handleDeleteClick = async (idx: number) => {
     setDeleteTodo(idx);
+    await deleteTodoList(idx);
+    console.log(idx);
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>, idx: number) => {
     setTodos(idx, e);
   };
+  console.log(todos);
+  const handleEnterClick = async (idx: number) => {
+    const updateTodo = {
+      id: idx,
+      text: todos[idx].text,
+    };
+
+    await putTodoList(idx, updateTodo);
+    setEdit(!edit);
+    setOpenValue(-1);
+  };
 
   useEffect(() => {
     getTodoList();
-    setDoneTodo([]);
-  }, [getTodoList, setDoneTodo]);
+  }, [getTodoList, setTodos]);
 
   return (
     <div>

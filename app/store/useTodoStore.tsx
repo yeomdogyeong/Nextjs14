@@ -30,7 +30,7 @@ export const useTodoStore = create<Store>((set, get) => ({
     set({ doneTodo: newTodo });
   },
   setDeleteTodo: (idx: number) => {
-    const newTodos = get().todos.filter((_, index) => index !== idx);
-    set({ todos: newTodos });
+    const deleteTodo = get().todos.filter((_, index) => index !== idx);
+    set({ todos: deleteTodo });
   },
 }));
