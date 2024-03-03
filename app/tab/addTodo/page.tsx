@@ -4,7 +4,7 @@ import { useTodoStore } from "@/app/store/useTodoStore";
 import { getAllTodoList } from "@/app/api/todo";
 import { todo } from "node:test";
 import { postAddTodoList } from "@/app/api/todo";
-import { TodoType } from "@/app/api/type";
+import { PostIdType, TodoType } from "@/app/api/type";
 // export const metadata = {
 //   title: "About",
 // };
@@ -27,8 +27,8 @@ export default function AddTodo(props: Props) {
   console.log(inputValue);
 
   const handleAddTodo = async () => {
-    const rq: TodoType = {
-      id: todos[todos.length - 1].id + 1,
+    const rq: PostIdType = {
+      id: todos.length.toString(),
       text: inputValue,
       completed: false,
     };

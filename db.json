@@ -1,35 +1,16 @@
 {
   "todos": [
     {
-      "id": "10",
-      "text": "조기반찬ㅇㅇㅇㅇ"
+      "id": "0",
+      "text": "자몽사탕1"
     },
     {
-      "id": "13",
-      "text": "추가합니다2"
+      "id": "1",
+      "text": "망고사탕2"
     },
     {
-      "id": "14",
-      "text": "망고아이스2"
-    },
-    {
-      "id": "16",
-      "text": "유즈",
-      "completed": false
-    },
-    {
-      "id": 6,
-      "text": "유자차",
-      "completed": false
-    },
-    {
-      "id": 7,
-      "text": "다시 더해봄",
-      "completed": false
-    },
-    {
-      "id": 8,
-      "text": "몇 개 더해봄",
+      "id": "2",
+      "text": "수박사탕",
       "completed": false
     }
   ]

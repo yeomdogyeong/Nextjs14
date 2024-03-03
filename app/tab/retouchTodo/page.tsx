@@ -33,7 +33,7 @@ export default function RetouchTodo(props: Props) {
   console.log(todos);
   const handleEnterClick = async (idx: number) => {
     const updateTodo = {
-      id: todos[idx].id,
+      id: idx,
       text: todos[idx].text,
     };
     console.log(todos[idx].id);
