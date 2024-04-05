@@ -5,9 +5,26 @@ import { NaviTab } from "./naviTab";
 
 export const Navigation = () => {
   const pathname = usePathname();
+  const isMoviePage = pathname.startsWith("/movies");
 
-  return (
+  return isMoviePage ? (
     <nav className="bg-blue-400 p-4 flex justify-between">
+      <ul className="flex space-x-4">
+        <li className="flex justify-start">
+          <Link href="/">
+            <span
+              className={`cursor-pointer text-white ${
+                pathname === "/" ? " text-white" : "text-gray-700"
+              }`}
+            >
+              Home
+            </span>
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  ) : (
+    <nav className="bg-orange-400 p-4 flex justify-between">
       <ul className="flex space-x-4">
         <li className="flex justify-start">
           <Link href="/">
