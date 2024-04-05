@@ -3,5 +3,5 @@ export const metadata = {
 };
 
 export default function NotFound() {
-  return <div>not found</div>;
+  return <div>not found! ㅜ0ㅜ</div>;
 }

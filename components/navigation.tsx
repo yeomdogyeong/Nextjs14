@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { NaviTab } from "./naviTab";
 
 export const Navigation = () => {
   const pathname = usePathname();
@@ -22,41 +23,9 @@ export const Navigation = () => {
       </ul>
 
       <ul className="flex justify-end space-x-4">
-        <li className="relative">
-          <Link href="/tab/todo">
-            <span
-              className={`cursor-pointer ${
-                pathname === "/tab/todo" ? " text-white" : "text-gray-700"
-              }`}
-            >
-              Todo
-            </span>
-          </Link>
-        </li>
-        <li className="relative">
-          <Link href="/tab/addTodo">
-            <span
-              className={`cursor-pointer ${
-                pathname === "/tab/addTodo" ? " text-white" : "text-gray-700"
-              }`}
-            >
-              addTodo
-            </span>
-          </Link>
-        </li>
-        <li className="relative">
-          <Link href="/tab/retouchTodo">
-            <span
-              className={`cursor-pointer ${
-                pathname === "/tab/retouchTodo"
-                  ? " text-white"
-                  : "text-gray-700"
-              }`}
-            >
-              retouchTodo
-            </span>
-          </Link>
-        </li>
+        <NaviTab name="todo" />
+        <NaviTab name="addTodo" />
+        <NaviTab name="retouchTodo" />
       </ul>
     </nav>
   );
