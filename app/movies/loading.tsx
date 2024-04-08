@@ -1,3 +1,6 @@
+"use client";
+
+import { Spinner } from "../../components/spinner";
 export default function Loading() {
-  return <h2>mango</h2>;
+  return <Spinner />;
 }
