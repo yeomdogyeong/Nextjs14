@@ -1,9 +1,6 @@
 import MovieVideos from "@/components/movie-videos";
 import { API_URL } from "../page";
-async function getMovie(id: string) {
-  const res = await fetch(`${API_URL}/${id}`);
-  return res.json();
-}
+import MovieInfo from "@/components/movie-info";
 
 export default async function MovieDetail({
   params: { id },
@@ -12,6 +9,8 @@ export default async function MovieDetail({
 }) {
   return (
     <>
+      <MovieInfo id={id} />
+      <br />
       <MovieVideos id={id} />
     </>
   );
