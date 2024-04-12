@@ -15,12 +15,14 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <div className="flex flex-col items-center ">
-          <Navigation />
-          <main className="">{children}</main>
-          <footer className="fixed bottom-0">
-            <p>© 2024 My Mobile Web Page</p>
-          </footer>
+        <div className="flex flex-col items-center">
+          <div>
+            <Navigation />
+            <main className="max-w-[500px] min-h-screen">{children}</main>
+            <footer className="fixed bottom-0">
+              <p>© 2024 My Mobile Web Page</p>
+            </footer>
+          </div>
         </div>
       </body>
     </html>

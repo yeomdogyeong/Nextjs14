@@ -10,5 +10,9 @@ interface MovieInfoProps {
 
 export default async function MovieInfo({ id }: MovieInfoProps) {
   const movie = await getMovie(id);
-  return <h2>{JSON.stringify(movie)}</h2>;
+  return (
+    <h2 className="">
+      <pre>{JSON.stringify(movie.genres)}</pre>
+    </h2>
+  );
 }

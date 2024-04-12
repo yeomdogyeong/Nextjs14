@@ -15,7 +15,7 @@ export default async function Movies() {
   const movies = await getMovies();
 
   return (
-    <div>
+    <div className="">
       {movies.map((movie: any) => (
         <li key={movie.id}>
           <Link href={`/movies/${movie.id}`}>{movie.title}</Link>
