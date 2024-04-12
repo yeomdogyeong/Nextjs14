@@ -16,9 +16,9 @@ export default function RootLayout({
     <html>
       <body>
         <div className="flex flex-col items-center">
-          <div>
+          <div className="max-w-[500px] min-h-screen w-full h-full">
             <Navigation />
-            <main className="max-w-[500px] min-h-screen">{children}</main>
+            <main className="">{children}</main>
             <footer className="fixed bottom-0">
               <p>© 2024 My Mobile Web Page</p>
             </footer>

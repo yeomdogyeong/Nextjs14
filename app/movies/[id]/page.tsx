@@ -23,4 +23,5 @@ export default async function MovieDetail({
 }
 
 //suspense는 감싼 component가 await될 동안 표시할 메세지를 Render할 수 있게 해줌
+//하나의 정보가 Fetch되면 바로 나타남. 다른 데이터를 기다릴 필요 없음.
 //option key 포인터 다중사용 가능
