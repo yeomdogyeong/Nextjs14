@@ -3,6 +3,7 @@ import { API_URL } from "../page";
 import MovieInfo from "@/components/movie-info";
 import { Suspense } from "react";
 import { Spinner } from "@/components/spinner";
+import Dummy from "@/components/dummy";
 
 export default async function MovieDetail({
   params: { id },
@@ -11,13 +12,15 @@ export default async function MovieDetail({
 }) {
   return (
     <div className="flex flex-col">
-      <Suspense fallback={<Spinner />}>
-        <MovieInfo id={id} />
-      </Suspense>
-
-      <Suspense fallback={<h1>Movie loading</h1>}>
-        <MovieVideos id={id} />
-      </Suspense>
+      <div className="max-w-[500px] min-h-screen w-full h-full flex flex-col items-center">
+        <Suspense fallback={<Spinner />}>
+          <MovieInfo id={id} />
+        </Suspense>
+        <Dummy />
+        <Suspense fallback={<h1>Movie loading</h1>}>
+          <MovieVideos id={id} />
+        </Suspense>
+      </div>
     </div>
   );
 }

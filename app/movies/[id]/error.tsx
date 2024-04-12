@@ -1,4 +1,4 @@
 "use client";
 export default function Error() {
-  return <h1>somethings happened</h1>;
+  return <h1 className="flex justify-center">somethings happened</h1>;
 }
