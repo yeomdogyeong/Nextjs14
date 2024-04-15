@@ -1,6 +1,6 @@
-import MovieVideos from "@/components/movie-videos";
+import MovieVideos from "@/components/movie/movie-videos";
 import { API_URL } from "../page";
-import MovieInfo from "@/components/movie-info";
+import MovieInfo from "@/components/movie/movie-info";
 import { Suspense } from "react";
 import { Spinner } from "@/components/spinner";
 import Dummy from "@/components/dummy";
