@@ -1,3 +1,4 @@
+import Movie from "@/components/movie";
 import { url } from "inspector";
 import Link from "next/link";
 
@@ -17,9 +18,12 @@ export default async function Movies() {
   return (
     <div className="">
       {movies.map((movie: any) => (
-        <li key={movie.id}>
-          <Link href={`/movies/${movie.id}`}>{movie.title}</Link>
-        </li>
+        <Movie
+          key={movie.id}
+          id={movie.id}
+          poster_path={movie.poster_path}
+          title={movie.title}
+        />
       ))}
     </div>
   );

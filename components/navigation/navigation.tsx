@@ -2,8 +2,8 @@
 import styles from "./navigation.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NaviTab } from "./naviTab";
-
+import { NaviTab } from "../naviTab";
+//styles 사용방법은 className = {styles.nav}
 export const Navigation = () => {
   const pathname = usePathname();
   const isMoviePage = pathname.startsWith("/movies");
