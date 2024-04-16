@@ -26,6 +26,11 @@ export default function AddTodo(props: Props) {
   };
   console.log(inputValue);
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleAddTodo();
+    }
+  };
   const handleAddTodo = async () => {
     const rq: PostIdType = {
       id: todos.length.toString(),
@@ -65,6 +70,7 @@ export default function AddTodo(props: Props) {
         placeholder="추가 할 일을 입력하세요"
         value={inputValue}
         onChange={handleOnChange}
+        onKeyDown={handleKeyDown}
       />
       <button onClick={handleAddTodo}>추가</button>{" "}
     </div>
