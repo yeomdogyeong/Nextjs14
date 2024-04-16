@@ -10,17 +10,16 @@ async function getVideo(id: string) {
 
 export default async function MovieVideos({ id }: { id: string }) {
   const data = await getVideo(id);
+
   return (
     <div className="">
-      {data.map((video: any) => (
-        <iframe
-          key={video.id}
-          src={`https://youtube.com/embed/${video.key}`}
-          title={video.name}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      ))}
+      <iframe
+        key={data[0].id}
+        src={`https://youtube.com/embed/${data[0].key}`}
+        title={data[0].name}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
     </div>
   );
 }

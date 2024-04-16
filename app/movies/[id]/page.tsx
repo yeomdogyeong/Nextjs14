@@ -4,6 +4,7 @@ import MovieInfo from "@/components/movie/movie-info";
 import { Suspense } from "react";
 import { Spinner } from "@/components/spinner";
 import Dummy from "@/components/dummy";
+import MovieCredits from "@/components/movie/movie-credits";
 
 export default async function MovieDetail({
   params: { id },
@@ -16,7 +17,9 @@ export default async function MovieDetail({
         <Suspense fallback={<Spinner />}>
           <MovieInfo id={id} />
         </Suspense>
-
+        <Suspense>
+          <MovieCredits id={id} />
+        </Suspense>
         <Suspense fallback={<h1>Movie loading</h1>}>
           <MovieVideos id={id} />
         </Suspense>

@@ -15,6 +15,7 @@
     "react-dom": "^18",
     "react-loader-spinner": "^6.1.6",
     "react-spinners": "^0.13.8",
+    "recoil": "^0.7.7",
     "zustand": "^4.5.1"
   },
   "devDependencies": {
