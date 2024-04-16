@@ -2,7 +2,7 @@ import { Spinner } from "../../components/spinner";
 export default function Loading() {
   return (
     <div>
-      <Spinner />;
+      <Spinner />
     </div>
   );
 }
