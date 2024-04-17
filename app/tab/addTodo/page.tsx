@@ -27,7 +27,7 @@ export default function AddTodo(props: Props) {
   console.log(inputValue);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.nativeEvent.isComposing === false) {
       handleAddTodo();
     }
   };
