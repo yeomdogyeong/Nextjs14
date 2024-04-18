@@ -30,7 +30,7 @@ export default function RetouchTodo(props: Props) {
   const handleChange = (e: ChangeEvent<HTMLInputElement>, idx: number) => {
     setTodos(idx, e);
   };
-  console.log(todos);
+
   const handleEnterClick = async (idx: number) => {
     const updateTodo = {
       id: idx,

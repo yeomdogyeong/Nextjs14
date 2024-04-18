@@ -1,5 +1,7 @@
 "use client";
 import { useEffect } from "react";
+import { useQuery } from "react-query";
+import { isQueryKey } from "react-query/types/core/utils";
 export default function Dog() {
   const callData = async () => {
     const res = await fetch(
@@ -10,8 +12,15 @@ export default function Dog() {
     return json;
   };
 
-  useEffect(() => {
-    callData();
-  }, []);
+  const { isLoading, isError, data } = useQuery("getDog", callData);
+
+  if (isLoading) {
+    return <span>Loading...</span>;
+  }
+
+  if (isError) {
+    return <span>Error: {isError}</span>;
+  }
+
   return <div>dog page</div>;
 }
