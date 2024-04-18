@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { useTodoStore } from "@/app/store/useTodoStore";
-import { getAllTodoList } from "@/app/api/todo";
-import { todo } from "node:test";
+import { useInfiniteQuery } from "react-query";
 import TodoList from "@/components/todo/todoList";
 import TodoDrop from "@/components/todo/todoDrop";
 // export const metadata = {
@@ -17,10 +16,11 @@ interface Props {
 }
 
 export default function Todo(props: Props) {
-  const { getTodoList, setDoneTodo } = useTodoStore();
+  const { todos, getTodoList, doneTodo, setDoneTodo } = useTodoStore();
 
   const { params } = props;
 
+  console.log(doneTodo);
   useEffect(() => {
     getTodoList();
     setDoneTodo([]);

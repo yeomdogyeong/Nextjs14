@@ -4,7 +4,7 @@ import { getAllTodoList } from "@/app/api/todo";
 export default function TodoDrop() {
   const [inputValue, setInputValue] = useState<string>("");
   const [dropMenu, setDropMenu] = useState<string[]>([]);
-  const { todos, getTodoList, doneTodo, setDoneTodo } = useTodoStore();
+  const { todos, doneTodo, setDoneTodo } = useTodoStore();
   const todoInputFiltered = async (value: string) => {
     //input값에 받아온 값이 비어있지않으면
     if (value.trim() !== "") {
