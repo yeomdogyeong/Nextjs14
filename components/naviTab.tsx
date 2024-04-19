@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -12,7 +11,7 @@ export const NaviTab: React.FC<NaviProps> = ({ name }) => {
     <li className="relative">
       <Link href={`/tab/${name}`}>
         <span
-          className={`cursor-pointer ${
+          className={`cursor-pointer hover:text-[#e0e0e0] ${
             pathname === `/tab/${name}` ? " text-white" : "text-gray-700"
           }`}
         >

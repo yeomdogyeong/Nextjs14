@@ -44,7 +44,7 @@ export const Navigation = () => {
           </li>
         </ul>
         <ul>
-          <NaviTab name="cutiiiie dog" />
+          <NaviTab name=" 🐶 cutiiiie dog" />
         </ul>
       </nav>
     );
