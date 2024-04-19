@@ -16,8 +16,8 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <div className="flex flex-col items-center">
-          <div className="max-w-[500px] min-h-screen w-full h-full">
+        <div className="flex flex-col items-center bg-gray-300">
+          <div className="max-w-[500px] min-h-screen w-full h-full bg-white">
             <Navigation />
             <Providers>
               <RecoilRootWrapper>

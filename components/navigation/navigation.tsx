@@ -29,7 +29,7 @@ export const Navigation = () => {
     );
   } else if (isDogPage) {
     return (
-      <nav className="bg-pink-400 p-4 flex justify-between">
+      <nav className="bg-indigo-300 p-4 flex justify-between">
         <ul className="flex space-x-4">
           <li className="flex justify-start">
             <Link href="/">
