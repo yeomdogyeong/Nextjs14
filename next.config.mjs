@@ -8,6 +8,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "cdn2.thedogapi.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

@@ -12,6 +12,11 @@ export interface PostIdType {
   completed: boolean;
 }
 
-export type GetTodoRs = TodoType[];
+export interface DogData {
+  id: string;
+  url: string;
+}
+
 export type PostTodoRs = PostIdType[];
+export type GetTodoRs = TodoType[];
 export type PutTodoRs = PutType[];
