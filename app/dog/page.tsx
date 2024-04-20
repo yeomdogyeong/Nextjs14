@@ -1,9 +1,9 @@
 "use client";
 
-import { GetDogImg } from "@/components/Hook/getDogImg";
+import { useGetDogImgQuery } from "@/components/Hook/getDogImg";
 import Image from "next/image";
 export default function Dog() {
-  const { data } = GetDogImg();
+  const { data } = useGetDogImgQuery();
   return (
     <div>
       {data &&
