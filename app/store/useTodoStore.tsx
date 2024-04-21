@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { TodoType } from "../api/type";
-import { getAllTodoList } from "../api/todo";
+import { getAllTodoList } from "../api/api";
 import { ChangeEvent } from "react";
 
 type Store = {

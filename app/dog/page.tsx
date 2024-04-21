@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetDogImgQuery } from "@/components/Hook/useGetDogImg";
+import { useGetDogImgQuery } from "@/components/Hook/useGetDogImgQuery";
 import Image from "next/image";
 import { useRef, useEffect } from "react";
 import { Spinner } from "@/components/spinner";

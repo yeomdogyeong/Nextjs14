@@ -1,9 +1,9 @@
 "use client";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { useTodoStore } from "@/app/store/useTodoStore";
-import { getAllTodoList } from "@/app/api/todo";
+import { getAllTodoList } from "@/app/api/api";
 import { todo } from "node:test";
-import { postAddTodoList } from "@/app/api/todo";
+import { postAddTodoList } from "@/app/api/api";
 import { PostIdType, TodoType } from "@/app/api/type";
 // export const metadata = {
 //   title: "About",

@@ -1,6 +1,6 @@
 import { useTodoStore } from "@/app/store/useTodoStore";
 import { useState, ChangeEvent } from "react";
-import { getAllTodoList } from "@/app/api/todo";
+import { getAllTodoList } from "@/app/api/api";
 export default function TodoDrop() {
   const [inputValue, setInputValue] = useState<string>("");
   const [dropMenu, setDropMenu] = useState<string[]>([]);

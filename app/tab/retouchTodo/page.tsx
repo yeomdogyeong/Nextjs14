@@ -1,7 +1,7 @@
 "use client";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { useTodoStore } from "@/app/store/useTodoStore";
-import { deleteTodoList, getAllTodoList, putTodoList } from "@/app/api/todo";
+import { deleteTodoList, getAllTodoList, putTodoList } from "@/app/api/api";
 
 interface Props {
   params: {

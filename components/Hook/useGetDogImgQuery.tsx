@@ -1,6 +1,5 @@
 import { useInfiniteQuery } from "react-query";
-import { DogData } from "@/app/api/type";
-import { getDogImg } from "@/app/api/todo";
+import { getDogImg } from "@/app/api/api";
 
 export const useGetDogImgQuery = () => {
   const {
