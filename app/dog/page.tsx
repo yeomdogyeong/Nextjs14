@@ -1,9 +1,36 @@
 "use client";
 
-import { useGetDogImgQuery } from "@/components/Hook/getDogImg";
+import { useGetDogImgQuery } from "@/components/Hook/useGetDogImg";
 import Image from "next/image";
+import { useRef, useEffect } from "react";
+import { Spinner } from "@/components/spinner";
+
 export default function Dog() {
-  const { data } = useGetDogImgQuery();
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
+    useGetDogImgQuery();
+  const observerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && hasNextPage && !isFetchingNextPage) {
+          fetchNextPage();
+        }
+      },
+      { rootMargin: "100px" }
+    );
+
+    if (observerRef.current) {
+      observer.observe(observerRef.current);
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observer.unobserve(observerRef.current);
+      }
+    };
+  }, [fetchNextPage, hasNextPage, isFetchingNextPage]);
+
   return (
     <div>
       {data &&
@@ -16,6 +43,8 @@ export default function Dog() {
             <span>{`Hello! my id is ${el.id}`}</span>
           </div>
         ))}
+      {isLoading && <Spinner />}
+      <div ref={observerRef} />
     </div>
   );
 }

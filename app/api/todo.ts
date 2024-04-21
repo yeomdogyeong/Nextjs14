@@ -25,11 +25,12 @@ export const deleteTodoList = async (id: number) => {
   return await Axios.delete(`/todos/${id}`);
 };
 
-export const getDogImg = async (): Promise<DogData[]> => {
+export const getDogImg = async ({
+  pageParam = 0,
+}): Promise<{ data: DogData[]; nextPage: number }> => {
   const res = await fetch(
-    "https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=10"
+    `https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=${pageParam}&limit=10`
   );
   const json = await res.json();
-  console.log(json);
-  return json;
+  return { data: json, nextPage: pageParam + 1 };
 };
