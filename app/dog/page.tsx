@@ -48,7 +48,9 @@ export default function Dog() {
           </div>
         ))}
       {isLoading && <Spinner />}
-      <div ref={observerRef} />
+      <div ref={observerRef}>
+        {isFetchingNextPage && hasNextPage ? <Spinner /> : "No search left"}
+      </div>
     </div>
   );
 }
