@@ -11,16 +11,20 @@ export default function Dog() {
   const observerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    //observer : Dom에 대한 참조를 보유하는 참조
+    //IntersectionObserver : 뷰포트와 관찰 대상 요소 간의 교차를 확인하는 API
     const observer = new IntersectionObserver(
       ([entry]) => {
+        //관찰 대상 요소가 뷰포트와 교차하는지 여부
         if (entry.isIntersecting && hasNextPage && !isFetchingNextPage) {
           fetchNextPage();
         }
       },
       { rootMargin: "100px" }
     );
-
+    console.log(observerRef);
     if (observerRef.current) {
+      //이 부분은 intersectionobserver를 만듬
       observer.observe(observerRef.current);
     }
 

@@ -14,6 +14,7 @@ export const useGetDogImgQuery = () => {
     getNextPageParam: (lastPage) => lastPage.nextPage,
     refetchInterval: false,
     staleTime: Infinity,
+    keepPreviousData: true,
   });
 
   const dogData = data?.pages.flatMap((page) => page.data);
