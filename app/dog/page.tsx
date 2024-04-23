@@ -23,6 +23,7 @@ export default function Dog() {
       { rootMargin: "100px" }
     );
     console.log(observerRef);
+    //useEffect가 useRef보다 먼저 실행되기 때문에, 조건문을 달아줘야함
     if (observerRef.current) {
       //이 부분은 intersectionobserver를 만듬
       observer.observe(observerRef.current);

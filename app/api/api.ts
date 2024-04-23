@@ -26,7 +26,7 @@ export const deleteTodoList = async (id: number) => {
 };
 
 export const getDogImg = async ({
-  pageParam = 1,
+  pageParam = 0,
 }): Promise<{ data: DogData[]; nextPage: number }> => {
   const res = await fetch(
     `https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=${pageParam}&limit=10`

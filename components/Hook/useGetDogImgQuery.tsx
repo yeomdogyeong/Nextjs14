@@ -14,12 +14,14 @@ export const useGetDogImgQuery = () => {
     getNextPageParam: (lastPage) => lastPage.nextPage,
     refetchInterval: false,
     staleTime: Infinity,
-    //캐시 된 데이터를 먼저 보여주고 Fetching이 끝난다음 데이터를 업데이트 해주는 방식
+    //캐시 된 데이터를 먼저 보여주고 Fetching이 끝난다음 데이터를 업데이트
     keepPreviousData: true,
   });
 
   const dogData = data?.pages.flatMap((page) => page.data);
-
+  console.log(data);
+  console.log(data?.pages);
+  console.log(dogData);
   return {
     isLoading,
     isError,
